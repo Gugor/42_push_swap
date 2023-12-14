@@ -14,6 +14,7 @@ int main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
+	args_error(ac, av);
 	ft_printf(":: Preparing stacks a & b\n");
 	allocate_stacks(&stack_a, &stack_b, ac);
 	ft_printf(":: Stacks a(%p) & b(%p) allocated in memory\n", stack_a, stack_b);

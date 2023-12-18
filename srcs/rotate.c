@@ -8,15 +8,14 @@ void ft_rotate(t_istack *stack)
 {
 	int aux;
 	int indx;
-	int len;
-	if (!stack[0])
+
+	if (!stack->list[0])
 		return ;
-	aux = stack[0];
+	aux = stack->list[0];
 	indx = -1;
-	len = ft_len(stack);
-	while ( ++indx < len)
-		stack[indx] = stack[indx + 1];
-	stack[indx - 1] = aux;
+	while ( ++indx < stack->len)
+		stack->list[indx] = stack->list[indx + 1];
+	stack->list[indx - 1] = aux;
 }
 
 
@@ -39,7 +38,7 @@ void ra(t_istack *stack)
  */
 void rb(t_istack *stack)
 {
-	if (!stack[0])
+	if (!stack->list[0])
 		return ;
 	ft_rotate(stack);
 	ft_printf("ra\n");
@@ -50,7 +49,7 @@ void rb(t_istack *stack)
  * Rotate a and b moves up all itemps and set the first one on the last position
  * for both stacks.
  */
-void rr(t_istack sa, t_istack sb)
+void rr(t_istack *sa, t_istack *sb)
 {
 	ft_rotate(sa);
 	ft_rotate(sb);

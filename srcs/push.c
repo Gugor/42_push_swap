@@ -1,23 +1,23 @@
 #include "../includes/push_swap.h"
 
-void ft_push(int *from, int *to)
+void ft_push(t_istack *from, t_istack *to)
 {
-	int len;
 
-	len = ft_len(from);
 	ft_reverse(to);
-	to[0] = from[0];
+	to->list[0] = from->list[0];
+	to->len++;
 	ft_rotate(from);
-	from[len-1] = '\0';
+	from->list[from->len] = '\0';
+	from->len--;
 }
 
 /**
  * Push first value of stack b in first position of stack a
  *
  */
-void pa(t_istack sa, t_istack sb)
+void pa(t_istack *sa, t_istack *sb)
 {
-	if (!sb[0])
+	if (!sb->list[0])
 		return ;
 	ft_push(sb, sa);
 	ft_printf("pa\n");
@@ -28,9 +28,9 @@ void pa(t_istack sa, t_istack sb)
  * Push first value of stack a in first position of stack b
  *
  */
-void pb(t_istack sb, t_istack sa)
+void pb(t_istack *sb, t_istack *sa)
 {
-	if (!sa[0])
+	if (!sa->list[0])
 		return ;
 	ft_push(sa, sb);
 	ft_printf("pb\n");

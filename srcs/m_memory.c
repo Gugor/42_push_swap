@@ -4,33 +4,68 @@
  * Allocate memory for stack a and b
  *
  */
-void allocate_stacks(int **stcka, int **stckb, int size)
+void allocate_stacks(t_istack **stcka, t_istack **stckb, int size)
 {
 	if (*stcka == NULL)
 	{
-		*stcka = (int *)malloc(size * sizeof(int));
+		*stcka = (t_istack *)malloc(sizeof(t_istack));
 		if (!stcka)
 			exit(EXIT_FAILURE);
+		(*stcka)->list = (int *)malloc(size * sizeof(int));
+		if ((*stcka)->list == NULL)
+			exit(EXIT_FAILURE);
+		(*stcka)->list[size] = '\0';
+		(*stcka)->len = 0;
 		ft_printf(" :: Allocation stack A (bytes=%d)\n", size * sizeof(int));
 	}
 	if (*stckb == NULL)
 	{
-		*stckb = (int *)malloc(size * sizeof(int));
+		*stckb = (t_istack *)malloc(sizeof(t_istack));
 		if (*stckb == NULL)
 			exit(EXIT_FAILURE);
+		(*stckb)->list = (int *)malloc(size + 1 * sizeof(int));
+		if ((*stckb)->list == NULL)
+			exit(EXIT_FAILURE);
+		(*stcka)->list[size] = '\0';
+		(*stckb)->len = 0;
 		ft_printf(" :: Allocation stack B (bytes=%d)\n", size * sizeof(int));
 	}
 	return ;
 }
-
+/**
+  * Allocate memory for stack a and b
+  *
+  *
+  */
+void new_stack(t_istack **stck , int size)
+ {
+     if (*stck == NULL)
+     {
+         *stck = (t_istack *)malloc(sizeof(t_istack));
+         if (!stck)
+             exit(EXIT_FAILURE);
+         (*stck)->list = (int *)malloc(size + 1 * sizeof(int));
+         if ((*stck)->list == NULL)
+             exit(EXIT_FAILURE);
+         (*stck)->len = 0;
+         ft_printf(" :: Allocation stack A (bytes=%d)\n", size * sizeof(int));      
+	 }
+ } 
 /**
  * Free memory safely
  */
-int memfree(int **mem)
+int memfree(t_istack **mem)
 {
+	int indx;
+	
+	indx = -1;
 	if (mem != NULL || (mem != NULL && *mem != NULL))
 	{
-		free(*mem);
+		if (*mem)
+		{
+			free((*mem)->list);
+			free(*mem);
+		}
 		mem = NULL;
 		return (0);
 	}

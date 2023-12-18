@@ -23,21 +23,21 @@ void verify_input(int ac, char **av)
  * Find duplicate numbers
  *
  */
-
-static int find_duplicate(int size, char **list)
+static int find_duplicate(int size, char **args)
 {
-	int *args;
+	t_istack *stack;
 
-	args = (int *)malloc((size + 1) * sizeof(int));
-	get_args(size, list, args);
-	if (ft_intinclude(args))
+	stack = NULL;
+	new_stack(&stack, size);
+	get_args(size, args, stack);
+	if (ft_intinclude(stack->list))
 	{
-		memfree(&args);
+		free(stack);
 		ft_printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
-	memfree(&args);
-	return (0);
+	free(stack);
+	return (1);
 }
 
 /**
@@ -68,14 +68,15 @@ int get_args(int ac, char **av, t_istack *stack)
 	if (av == NULL || stack == NULL)
 		return (0);
 	ft_printf(":: Getting args...\n");
-	ft_printf(" :: Stack size: %d\n", ft_len(stack));
-	while (++indx < ac - 1)
+	ft_printf(" :: Stack size: %d\n", ac);
+	while (++indx < ac)
 	{
 		arg = ft_atoi(vals[indx + 1]); 
 		ft_printf("Saving arg [%d]\n", indx);
-		*(stack + indx) = arg;
+		stack->list[indx] = arg;
 		printf("  %d\n", arg);
 	}
+	stack->len = indx;
 	ft_printf("\n");
 	return (indx);
 

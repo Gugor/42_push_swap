@@ -1,22 +1,6 @@
 #include "../includes/push_swap.h"
 
 /**
-  * Count the number of items in an int array
-  *
-  */
- int ft_len(int *nums)
- {
-     int indx;
-
-     if (!nums)
-         return (0);
-     indx = 0;
-     while (nums[indx])
-         indx++;
-     return (indx);
- }
-
-/**
  * Find if there is repited numbers in an array
  *
  */

@@ -5,16 +5,15 @@
  */
 void ft_reverse(t_istack *stack)
 {
-	char aux;
-	int len;
+	int aux;
 
-	if (!stack[0])
+	if (!stack->list[0])
 		return ;
-	len = ft_len(stack);
-	aux = stack[len - 1];
-	while(--len > 0)
-		stack[len] = stack[len - 1];
-	stack[0] = aux;
+	ft_printf(":: Revers stack len %d\n", stack->len);
+	aux = stack->list[stack->len - 1];
+	while(--stack->len > 0)
+		stack->list[stack->len] = stack->list[stack->len - 1];
+	stack->list[0] = aux;
 }
 
 /**
@@ -44,7 +43,7 @@ void rrb(t_istack *stack)
  * Reverse both stacks a & b
  * 
  */
-void rrr(int *stcka, int *stckb)
+void rrr(t_istack *stcka, t_istack *stckb)
 {
 	ft_reverse(stcka);
 	ft_reverse(stckb);

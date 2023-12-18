@@ -7,11 +7,11 @@ void ft_swap(t_istack *stack)
 {
 	int aux;
 	
-	if (!stack[1])
+	if (!stack->list[1])
 		return ;
-	aux = stack[0];
-	stack[0] = stack[1];
-	stack[1] = aux;
+	aux = stack->list[0];
+	stack->list[0] = stack->list[1];
+	stack->list[1] = aux;
 }
 
 /** 
@@ -39,7 +39,7 @@ void sb(t_istack *stack)
  * Swaps the two first element of the stack
  * sb
  */
-void ss(int *swpa, int *swpb)
+void ss(t_istack *swpa, t_istack *swpb)
 {
 	ft_swap(swpa);
 	ft_swap(swpb);

@@ -3,7 +3,7 @@
 /**
  * Reverse elements in a stack, last become first.
  */
-void ft_reverse(int *stack)
+void ft_reverse(t_istack *stack)
 {
 	char aux;
 	int len;
@@ -21,7 +21,7 @@ void ft_reverse(int *stack)
  * Reverse a moves down all elements in the stack in such way that
  * the last one becomes the first. Oposite of rotate
  */
-void rra(int *stack)
+void rra(t_istack *stack)
 {
 	if (!stack)
 		return ;
@@ -33,7 +33,7 @@ void rra(int *stack)
  * Reverse b moves down all elements in the stack in such way that
  * the last one becomes the first. Oposite of rotate
  */
-void rrb(int *stack)
+void rrb(t_istack *stack)
 {
 	if (!stack)
 		return ;

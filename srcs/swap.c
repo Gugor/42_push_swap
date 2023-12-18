@@ -3,7 +3,7 @@
 /**
  *
  */
-void ft_swap(int *stack)
+void ft_swap(t_istack *stack)
 {
 	int aux;
 	
@@ -18,7 +18,7 @@ void ft_swap(int *stack)
  * Swaps the two first element of the stack
  * sa
  */
-void sa(int *stack)
+void sa(t_istack *stack)
 {
 	ft_swap(stack);
 	return ;
@@ -28,7 +28,7 @@ void sa(int *stack)
  * Swaps the two first element of the stack
  * sb
  */
-void sb(int *stack)
+void sb(t_istack *stack)
 {
 	ft_swap(stack);
 	ft_printf("sa\n");

@@ -15,7 +15,7 @@ void ft_push(int *from, int *to)
  * Push first value of stack b in first position of stack a
  *
  */
-void pa(int *sa, int *sb)
+void pa(t_istack sa, t_istack sb)
 {
 	if (!sb[0])
 		return ;
@@ -28,7 +28,7 @@ void pa(int *sa, int *sb)
  * Push first value of stack a in first position of stack b
  *
  */
-void pb(int *sb, int *sa)
+void pb(t_istack sb, t_istack sa)
 {
 	if (!sa[0])
 		return ;

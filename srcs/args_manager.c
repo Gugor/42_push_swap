@@ -55,7 +55,7 @@ void args_error(int ac, char **av)
  * Get the arguments of the program and set it into the stack
  *
  */
-int get_args(int ac, char **av, int *stack)
+int get_args(int ac, char **av, t_istack *stack)
 {
 	int indx;
 	int arg;

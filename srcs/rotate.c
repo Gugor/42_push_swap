@@ -4,7 +4,7 @@
  *  Rorate move up all items in a stack and first becomes last
  *
  */
-void ft_rotate(int *stack)
+void ft_rotate(t_istack *stack)
 {
 	int aux;
 	int indx;
@@ -24,7 +24,7 @@ void ft_rotate(int *stack)
  * Rotate a moves up all itemps and set the first one on the last position
  *
  */
-void ra(int *stack)
+void ra(t_istack *stack)
 {
 	if (stack == NULL)
 		return ;
@@ -37,7 +37,7 @@ void ra(int *stack)
  * Rotate b moves up all itemps and set the first one on the last position
  *
  */
-void rb(int *stack)
+void rb(t_istack *stack)
 {
 	if (!stack[0])
 		return ;
@@ -50,7 +50,7 @@ void rb(int *stack)
  * Rotate a and b moves up all itemps and set the first one on the last position
  * for both stacks.
  */
-void rr(int *sa, int *sb)
+void rr(t_istack sa, t_istack sb)
 {
 	ft_rotate(sa);
 	ft_rotate(sb);

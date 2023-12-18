@@ -43,6 +43,7 @@ void		new_stack(t_istack **stck, int size);
 int			ft_sstrlen(char **sstr);
 //			... Utils ...			//
 int			ft_intinclude(int *nums);
+int			is_sorted(t_istack *stck);
 //			Args Manager ...		//
 void		args_error(int ac, char **av);
 int			get_args(int ac, char **av, t_istack *stack);

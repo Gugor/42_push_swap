@@ -40,6 +40,10 @@ int main(int ac, char **av)
 	ft_printf(":: Program name: %s\n", av[0]);
 	get_args(ac, av, stack_a);
 	
+	if (is_sorted(stack_a))
+		printf("Sorted!\n");
+	else
+		printf("NOT Sorted!\n");
 	ft_printf(":: Args retrieved: ");
 	ft_printf("(%d)\n", stack_a[0]);
 	ft_printf("::  a & b\n");

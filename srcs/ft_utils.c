@@ -24,3 +24,22 @@ int ft_intinclude(int *nums)
 	}
 	return (0);
 }
+
+
+/**
+ * Checks if stack is sorted 
+ *
+ */
+int is_sorted(t_istack *stck)
+{
+	int indx;
+	int *list;
+
+	indx = -1;
+	list = stck->list;
+
+	while (*(list + ++indx))
+		if(list[indx + 1] && list[indx] > list[indx + 1]) 
+			return (0);
+	return (1);
+}

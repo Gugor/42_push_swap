@@ -10,7 +10,7 @@ LIBFT_DIR	= $(LIBS_DIR)/libft
 PRINTF_DIR	= $(LIBS_DIR)/ft_printf
 INCS_DIR	= ./includes
 SRCS_DIR	= ./srcs
-TEST_DIR	= ./test~
+TST_DIR		= ./test~
 
 # Libraries
 PRINTF_LIB	= $(abspath $(PRINTF_DIR)/libftprintf.a)
@@ -21,7 +21,7 @@ MF 			= Makefile
 
 # Compiler
 CC 			= gcc
-CFLAGS		= -Wall -Wextra -Werror -I$(INCS_DIR) -I$(LIBFT_DIR) -I$(PRINTF_LIB)
+CFLAGS		= -g -Wall -Wextra -Werror -I$(INCS_DIR) -I$(LIBFT_DIR) -I$(PRINTF_LIB)
 LFLAGS		= -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf	
 
 # FILES
@@ -32,11 +32,11 @@ TST_FILES	= push_swap.c push.c swap.c reverse.c rotate.c m_memory.c string.c  ft
 # Route to files
 SRCS		= $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
 INCS		= $(addprefix $(INCS_DIR)/, $(INC_FILES))
-TSTS		= $(addprefix $(TEST_DIR)/,$(TST_FILES))
+TSTS		= $(addprefix $(TST_DIR)/, $(TST_FILES))
 
 # Route to Objects
 OBJS		= $(SRCS_DIR/%.c=%.o)
-DOBJS		= $(TEST_DIR/%.c=%.o)
+DOBJS		= $(TST_DIR/%.c=%.o)
 
 # -----
 

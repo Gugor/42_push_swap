@@ -21,6 +21,7 @@ void ft_swap(t_istack *stack)
 void sa(t_istack *stack)
 {
 	ft_swap(stack);
+	ft_printf("sa\n");
 	return ;
 }
 
@@ -31,7 +32,7 @@ void sa(t_istack *stack)
 void sb(t_istack *stack)
 {
 	ft_swap(stack);
-	ft_printf("sa\n");
+	ft_printf("sb\n");
 	return ;
 }
 

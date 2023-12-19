@@ -7,14 +7,13 @@ void ft_reverse(t_istack *stack)
 {
 	int aux;
 
-	ft_printf(":: Reversing\n");
 	if (!stack->list || stack->len < 2)
 		return ;
-	ft_printf(":: Revers stack len %d\n", stack->len);
 	aux = stack->list[stack->len];
 	while(--stack->len > 0)
 		stack->list[stack->len] = stack->list[stack->len - 1];
 	stack->list[0] = aux;
+	return ;
 }
 
 /**
@@ -27,6 +26,7 @@ void rra(t_istack *stack)
 		return ;
 	ft_reverse(stack);
 	ft_printf("rra\n");
+	return ;
 }
 
 /**
@@ -39,6 +39,7 @@ void rrb(t_istack *stack)
 		return ;
 	ft_reverse(stack);
 	ft_printf("rrb\n");
+	return ;
 }
 /**
  * Reverse both stacks a & b
@@ -49,5 +50,6 @@ void rrr(t_istack *stcka, t_istack *stckb)
 	ft_reverse(stcka);
 	ft_reverse(stckb);
 	ft_printf("rrr\n");
+	return ;
 }
 

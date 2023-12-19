@@ -16,6 +16,8 @@ typedef struct s_istack
 } t_istack;
 
 //º_______ ::: PROTOTYPES ::: ______º//
+//			... Sort Engine ...		//
+void		push_swap(t_istack *a, t_istack *b);
 //			... Reverse ...			//
 void		ft_reverse(t_istack *stack);
 void		rra(t_istack *stack);
@@ -47,4 +49,7 @@ int			is_sorted(t_istack *stck);
 //			Args Manager ...		//
 void		args_error(int ac, char **av);
 int			get_args(int ac, char **av, t_istack *stack);
+//			... Prints ...			//
+void print_stack(t_istack *stck);
+void print_stacks(int count, t_istack *stacka, t_istack *stackb);
 #endif

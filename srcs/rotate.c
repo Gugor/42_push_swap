@@ -41,7 +41,7 @@ void rb(t_istack *stack)
 	if (!stack->list[0])
 		return ;
 	ft_rotate(stack);
-	ft_printf("ra\n");
+	ft_printf("rb\n");
 	return ;
 }
 

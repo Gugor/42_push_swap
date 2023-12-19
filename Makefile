@@ -26,8 +26,10 @@ LFLAGS		= -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf
 
 # FILES
 INC_FILES	= push_swap.h
-SRC_FILES	= push_swap.c push.c swap.c reverse.c rotate.c m_memory.c string.c  ft_utils.c args_manager.c
-TST_FILES	= push_swap.c push.c swap.c reverse.c rotate.c m_memory.c string.c  ft_utils.c args_manager.c 
+SRC_FILES	= push_swap.c push.c swap.c reverse.c rotate.c m_memory.c string.c \
+			  ft_utils.c args_manager.c sortengine.c print.c
+TST_FILES	= push_swap.c push.c swap.c reverse.c rotate.c m_memory.c string.c \
+			  ft_utils.c args_manager.c sortengine.c print.c 
 
 # Route to files
 SRCS		= $(addprefix $(SRCS_DIR)/, $(SRC_FILES))

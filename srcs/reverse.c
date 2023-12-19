@@ -9,10 +9,12 @@ void ft_reverse(t_istack *stack)
 
 	if (!stack->list || stack->len < 2)
 		return ;
+	print_stack(stack);
 	aux = stack->list[stack->len];
 	while(--stack->len > 0)
 		stack->list[stack->len] = stack->list[stack->len - 1];
 	stack->list[0] = aux;
+	print_stack(stack);
 	return ;
 }
 

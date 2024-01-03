@@ -26,6 +26,7 @@ static void print_stacks(int count, t_istack *stacka, t_istack *stackb)
 	ft_printf("____ ____\n");
 }*/
 
+/*
 int main(int ac, char **av)
 {
 	t_istack	*stack_a;
@@ -39,6 +40,28 @@ int main(int ac, char **av)
 	allocate_stacks(&stack_a, &stack_b, ac);
 	ft_printf(":: Stacks a(%p) & b(%p) allocated in memory\n", stack_a, stack_b);
 	ft_printf(":: Program name: %s\n", av[0]);
+	get_args(ac, av, stack_a);
+	
+	if (is_sorted(stack_a))
+	{
+		memfree(&stack_a);
+		memfree(&stack_b);
+		return (0);
+	}
+	rra(stack_a);
+}*/
+
+
+int main(int ac, char **av)
+{
+	t_istack	*stack_a;
+	t_istack	*stack_b;
+
+	stack_a = NULL;
+	stack_b = NULL;
+	ac--;
+	args_error(ac, av);
+	allocate_stacks(&stack_a, &stack_b, ac);
 	get_args(ac, av, stack_a);
 	
 	if (is_sorted(stack_a))

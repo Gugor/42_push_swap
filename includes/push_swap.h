@@ -44,12 +44,13 @@ void		new_stack(t_istack **stck, int size);
 //			... String ...			//
 int			ft_sstrlen(char **sstr);
 //			... Utils ...			//
-int			ft_intinclude(int *nums);
+int			ft_icheckdups(int *nums);
 int			is_sorted(t_istack *stck);
+int			find_max(int *nums);
 //			Args Manager ...		//
 void		args_error(int ac, char **av);
 int			get_args(int ac, char **av, t_istack *stack);
 //			... Prints ...			//
-void print_stack(t_istack *stck);
-void print_stacks(int count, t_istack *stacka, t_istack *stackb);
+void		print_stack(t_istack *stck);
+void		print_stacks(int count, t_istack *stacka, t_istack *stackb);
 #endif

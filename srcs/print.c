@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:30:08 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/12/19 15:42:30 by hmontoya         ###   ########.fr       */
+/*   Updated: 2024/01/03 15:28:45 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ void print_stack(t_istack *stck)
 	if(!stck || !stck->list || !stck->list[0])
 		return ;
 	i = - 1;
-	ft_printf("[");
+	ft_printf("[ ");
 	while (stck->list[++i])
 		ft_printf("%d ", stck->list[i]);
-	ft_printf("]");
+	ft_printf("]\n");
 	return ;
 }

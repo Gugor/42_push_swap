@@ -5,7 +5,6 @@ void ft_push(t_istack *from, t_istack *to)
 
 	if (!from->list[0])
 		exit(EXIT_FAILURE);
-	ft_printf("Pushing:\n");
 	ft_reverse(to);
 	to->list[0] = from->list[0];
 	to->len++;

@@ -9,7 +9,7 @@ void ft_rotate(t_istack *stack)
 	int aux;
 	int indx;
 
-	if (!stack->list[0])
+	if (!stack->list)
 		return ;
 	aux = stack->list[0];
 	indx = -1;

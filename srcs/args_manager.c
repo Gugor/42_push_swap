@@ -23,14 +23,14 @@ void verify_input(int ac, char **av)
  * Find duplicate numbers
  *
  */
-static int find_duplicate(int size, char **args)
+static int has_duplicate(int size, char **args)
 {
 	t_istack *stack;
 
 	stack = NULL;
 	new_stack(&stack, size);
 	get_args(size, args, stack);
-	if (ft_intinclude(stack->list))
+	if (ft_icheckdups(stack->list))
 	{
 		free(stack);
 		ft_printf("Error\n");
@@ -49,7 +49,7 @@ void args_error(int ac, char **av)
 	if (ac == 1)
 		return ;
 	verify_input(ac, av);
-	find_duplicate(ac, av);
+	has_duplicate(ac, av);
 }
 /**
  * Get the arguments of the program and set it into the stack
@@ -67,17 +67,12 @@ int get_args(int ac, char **av, t_istack *stack)
 	
 	if (av == NULL || stack == NULL)
 		return (0);
-	ft_printf(":: Getting args...\n");
-	ft_printf(" :: Stack size: %d\n", ac);
 	while (++indx < ac)
 	{
 		arg = ft_atoi(vals[indx + 1]); 
-		ft_printf("Saving arg [%d]\n", indx);
 		stack->list[indx] = arg;
-		printf("  %d\n", arg);
 	}
 	stack->len = indx;
-	ft_printf("\n");
 	return (indx);
 
 }

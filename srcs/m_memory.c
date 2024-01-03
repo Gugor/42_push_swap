@@ -16,7 +16,6 @@ void allocate_stacks(t_istack **stcka, t_istack **stckb, int size)
 			exit(EXIT_FAILURE);
 		(*stcka)->list[size] = '\0';
 		(*stcka)->len = 0;
-		ft_printf(" :: Allocation stack A (bytes=%d)\n", size * sizeof(int));
 	}
 	if (*stckb == NULL)
 	{
@@ -28,7 +27,6 @@ void allocate_stacks(t_istack **stcka, t_istack **stckb, int size)
 			exit(EXIT_FAILURE);
 		(*stcka)->list[size] = '\0';
 		(*stckb)->len = 0;
-		ft_printf(" :: Allocation stack B (bytes=%d)\n", size * sizeof(int));
 	}
 	return ;
 }
@@ -48,7 +46,6 @@ void new_stack(t_istack **stck , int size)
          if ((*stck)->list == NULL)
              exit(EXIT_FAILURE);
          (*stck)->len = 0;
-         ft_printf(" :: Allocation stack A (bytes=%d)\n", size * sizeof(int));      
 	 }
  } 
 /**

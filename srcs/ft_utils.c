@@ -4,14 +4,13 @@
  * Find if there is repited numbers in an array
  *
  */
-int ft_intinclude(int *nums)
+int ft_icheckdups(int *nums)
 {
 	int len;
 	int indx;
 
 	len = -1;
 	indx = 1;
-	ft_printf(":: Finding matches\n");
 	while (nums[++len])
 	{
 		while (nums[len + indx] && (nums[len + indx] != nums[len]))
@@ -25,6 +24,26 @@ int ft_intinclude(int *nums)
 	return (0);
 }
 
+/**
+ * Find the maximun integer in a list
+ *
+ */
+int find_max(int *nums)
+{
+    int maxindx;
+    int pos;
+
+    maxindx = 0;
+    pos = -1;
+    if (nums == NULL)
+        return (-1);
+    while (*(nums + ++pos))
+    {
+        if (*(nums + maxindx) < *(nums + pos))
+                maxindx = pos;
+    }
+    return (maxindx);
+}
 
 /**
  * Checks if stack is sorted 

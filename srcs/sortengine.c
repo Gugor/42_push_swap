@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 14:53:32 by hmontoya          #+#    #+#             */
-/*   Updated: 2024/01/03 15:30:37 by hmontoya         ###   ########.fr       */
+/*   Updated: 2024/01/03 18:44:26 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,33 @@ static void three_sort(t_istack *a)
 	return ;
 }
 
-static void five_sort(t_istack *a)
+static void find_median(t_stack *stack)
 {
-	a = NULL;
-	return ;
+	//min 
+	//max
+	//abs(min - current) + abs(max - current)
+	//max - min / 2 = middle
+	//while stack check closest to middle
+	//mientras a > 3 items
+		//si menor a la media
+			//pb + ra
+		//si mayor a la media
+			//pb 
+				//si 1 < 2 
+					//sb		
+		//si igual a la mediana
+			//si b > mediana
+			I	//pb
+			//si b < mediana
+				//ra
+				//pb
 }
 
+static void stack_sort(t_stack *a, t_stack *b)
+{
+	if (is_sorted(a))
+		exit(1);
+}
 void push_swap(t_istack *a, t_istack *b)
 {
 	b = NULL; // BORARRARARARAR !!!!!
@@ -44,9 +65,9 @@ void push_swap(t_istack *a, t_istack *b)
 		three_sort(a);
 		return ;
 	}
-	if (a->len <= 5)
+	if (a->len > 3)
 	{
-		five_sort(a); // TODO
+		stack_sort(a); // TODO
 		return ;
 	}
 }

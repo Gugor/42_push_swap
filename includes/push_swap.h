@@ -12,6 +12,9 @@
 typedef struct s_istack
 {
 	int *list;
+	int median;
+	int min;
+	int max;
 	int len;
 } t_istack;
 
@@ -53,4 +56,7 @@ int			get_args(int ac, char **av, t_istack *stack);
 //			... Prints ...			//
 void		print_stack(t_istack *stck);
 void		print_stacks(int count, t_istack *stacka, t_istack *stackb);
+//			... Maths ...			//
+int			ft_max(int *nums);
+int			ft_min(int *nums);
 #endif

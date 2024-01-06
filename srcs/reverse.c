@@ -8,7 +8,7 @@ void ft_reverse(t_istack *stack)
 	int aux;
 	int indx;
 
-	if (!stack->list || stack->len < 2)
+	if (!stack || !stack->list || stack->len <= 1)
 		return ;
 	indx = stack->len;
 	aux = stack->list[indx - 1];

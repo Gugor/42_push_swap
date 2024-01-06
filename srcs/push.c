@@ -5,11 +5,18 @@ void ft_push(t_istack *from, t_istack *to)
 
 	if (!from->list[0])
 		exit(EXIT_FAILURE);
-	ft_reverse(to);
-	to->list[0] = from->list[0];
+	if (to->len == 0)
+		to->list[0] = from->list[0];
+	else
+	{
+		to->len++;
+		to->list[to->len] = 0;
+		ft_reverse(to);
+		to->list[0] = from->list[0];
+	}
 	to->len++;
 	ft_rotate(from);
-	from->list[from->len] = '\0';
+	from->list[from->len - 1] = 0;
 	from->len--;
 }
 

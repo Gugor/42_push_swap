@@ -15,6 +15,10 @@ void allocate_stacks(t_istack **stcka, t_istack **stckb, int size)
 		if ((*stcka)->list == NULL)
 			exit(EXIT_FAILURE);
 		(*stcka)->list[size] = '\0';
+		(*stcka)->costs = (int *)malloc(size * sizeof(int));
+		if ((*stcka)->costs == NULL)
+			exit(EXIT_FAILURE);
+		(*stcka)->costs[size] = '\0';
 		(*stcka)->len = 0;
 	}
 	if (*stckb == NULL)
@@ -24,6 +28,10 @@ void allocate_stacks(t_istack **stcka, t_istack **stckb, int size)
 			exit(EXIT_FAILURE);
 		(*stckb)->list = (int *)malloc(size + 1 * sizeof(int));
 		if ((*stckb)->list == NULL)
+			exit(EXIT_FAILURE);
+		(*stcka)->list[size] = '\0';
+		(*stckb)->costs = (int *)malloc(size + 1 * sizeof(int));
+		if ((*stckb)->costs == NULL)
 			exit(EXIT_FAILURE);
 		(*stcka)->list[size] = '\0';
 		(*stckb)->len = 0;
@@ -42,9 +50,14 @@ void new_stack(t_istack **stck , int size)
          *stck = (t_istack *)malloc(sizeof(t_istack));
          if (!stck)
              exit(EXIT_FAILURE);
-         (*stck)->list = (int *)malloc(size + 1 * sizeof(int));
+		 (*stck)->list = (int *)malloc(size + 1 * sizeof(int));
          if ((*stck)->list == NULL)
              exit(EXIT_FAILURE);
+		 (*stck)->list[size] = '\0';
+		 (*stck)->costs = (int *)malloc(size + 1 * sizeof(int));
+         if ((*stck)->costs == NULL)
+             exit(EXIT_FAILURE);
+		 (*stck)->costs[size] = '\0';
          (*stck)->len = 0;
 	 }
  } 
@@ -61,6 +74,7 @@ int memfree(t_istack **mem)
 		if (*mem)
 		{
 			free((*mem)->list);
+			free((*mem)->costs);
 			free(*mem);
 		}
 		mem = NULL;

@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 14:53:32 by hmontoya          #+#    #+#             */
-/*   Updated: 2024/01/03 18:44:26 by hmontoya         ###   ########.fr       */
+/*   Updated: 2024/01/06 14:26:58 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,16 @@ static void three_sort(t_istack *a)
 			sa(a);
 	return ;
 }
-
-static void find_median(t_stack *stack)
+/*
+static void find_median(t_istack *stack)
 {
+	int i;
+
+	i = -1;
+	while(stack->list[++i])
+		printf("%d, ", stack->list[i]);
+	
+ft_mergesort(stack->list);
 	//min 
 	//max
 	//abs(min - current) + abs(max - current)
@@ -44,20 +51,36 @@ static void find_median(t_stack *stack)
 					//sb		
 		//si igual a la mediana
 			//si b > mediana
-			I	//pb
+				//pb
 			//si b < mediana
 				//ra
 				//pb
 }
-
-static void stack_sort(t_stack *a, t_stack *b)
+*/
+static void stack_sort(t_istack *a, t_istack *b)
 {
 	if (is_sorted(a))
 		exit(1);
+	a->max = ft_max(a->list);
+	a->min = ft_min(a->list);
+	pb(b, a);
+	print_stack(a);
+	print_stack(b);
+	pb(b, a);
+	print_stack(a);
+	print_stack(b);
+	ft_reverse(a);
+	print_stack(a);
+	print_stack(b);
+/*
+	while (a->len > 3)
+	{
+		
+	}
+*/	
 }
 void push_swap(t_istack *a, t_istack *b)
 {
-	b = NULL; // BORARRARARARAR !!!!!
 	if (a->len == 1)
 		return ;
 	if (a->len == 3)
@@ -67,7 +90,7 @@ void push_swap(t_istack *a, t_istack *b)
 	}
 	if (a->len > 3)
 	{
-		stack_sort(a); // TODO
+		stack_sort(a, b); // FACTORING
 		return ;
 	}
 }

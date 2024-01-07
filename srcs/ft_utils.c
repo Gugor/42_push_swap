@@ -28,7 +28,7 @@ int ft_icheckdups(int *nums)
  * Find the maximun integer in a list
  *
  */
-int find_max(int *nums)
+int find_max(int *nums, int len)
 {
     int maxindx;
     int pos;
@@ -37,12 +37,29 @@ int find_max(int *nums)
     pos = -1;
     if (nums == NULL)
         return (-1);
-    while (*(nums + ++pos))
-    {
+    while (++pos < len)
         if (*(nums + maxindx) < *(nums + pos))
                 maxindx = pos;
-    }
-    return (maxindx);
+    return (maxindx - 1);
+}
+
+/**
+ * Find the minimum integer in a list
+ *
+ */
+int find_min(int *nums, int len)
+{
+    int minindx;
+    int pos;
+
+    minindx = 0;
+    pos = -1;
+    if (nums == NULL)
+        return (-1);
+    while (++pos < len)
+        if (*(nums + minindx) > *(nums + pos))
+                minindx = pos;
+    return (minindx - 1);
 }
 
 /**

@@ -12,13 +12,17 @@
 
 #include "../includes/push_swap.h"
 
+/**
+ * Sort 3 numbers
+ *
+ */
 static void three_sort(t_istack *a)
 {
 	int *list;
 	int maxindx;	
 
 	list = a->list;
-	maxindx = find_max(list);
+	maxindx = find_max(list, a->len);
 	if (maxindx == 0)
 		ra(a);
 	else if (maxindx == 1)
@@ -27,36 +31,11 @@ static void three_sort(t_istack *a)
 			sa(a);
 	return ;
 }
-/*
-static void find_median(t_istack *stack)
-{
-	int i;
 
-	i = -1;
-	while(stack->list[++i])
-		printf("%d, ", stack->list[i]);
-	
-ft_mergesort(stack->list);
-	//min 
-	//max
-	//abs(min - current) + abs(max - current)
-	//max - min / 2 = middle
-	//while stack check closest to middle
-	//mientras a > 3 items
-		//si menor a la media
-			//pb + ra
-		//si mayor a la media
-			//pb 
-				//si 1 < 2 
-					//sb		
-		//si igual a la mediana
-			//si b > mediana
-				//pb
-			//si b < mediana
-				//ra
-				//pb
-}
-*/
+/**
+ * Sort big number list > 3
+ *
+ */
 static void stack_sort(t_istack *a, t_istack *b)
 {
 	if (is_sorted(a))
@@ -64,21 +43,19 @@ static void stack_sort(t_istack *a, t_istack *b)
 	a->max = ft_max(a->list, a->len);
 	a->min = ft_min(a->list, a->len);
 	pb(b, a);
-	print_stack(a);
-	print_stack(b);
 	pb(b, a);
-	print_stack(a);
-	print_stack(b);
-	ft_reverse(a);
-	print_stack(a);
-	print_stack(b);
-/*
+	check_costs_a2b(a, b);
+	/*
 	while (a->len > 3)
 	{
-		
-	}
-*/	
+				
+	}*/
 }
+
+/**
+ * Main function that solve the stacks
+ *
+ */
 void push_swap(t_istack *a, t_istack *b)
 {
 	if (a->len == 1)

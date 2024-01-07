@@ -18,6 +18,8 @@ void ft_push(t_istack *from, t_istack *to)
 	ft_rotate(from);
 	from->list[from->len - 1] = 0;
 	from->len--;
+	to->mid = to->len * 0.5 + 1;
+	from->mid = from->len * 0.5 + 1;
 }
 
 /**

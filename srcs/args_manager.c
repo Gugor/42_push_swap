@@ -73,6 +73,7 @@ int get_args(int ac, char **av, t_istack *stack)
 		stack->list[indx] = arg;
 	}
 	stack->len = indx;
+	stack->mid = indx * 0.5 + 1;
 	return (indx);
 
 }

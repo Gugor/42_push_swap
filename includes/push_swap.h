@@ -13,7 +13,7 @@ typedef struct s_istack
 {
 	int *list;
 	int *costs;
-	int median;
+	int mid;
 	int min;
 	int max;
 	int len;
@@ -50,14 +50,17 @@ int			ft_sstrlen(char **sstr);
 //			... Utils ...			//
 int			ft_icheckdups(int *nums);
 int			is_sorted(t_istack *stck);
-int			find_max(int *nums);
+int			find_max(int *nums, int len);
 //			Args Manager ...		//
 void		args_error(int ac, char **av);
 int			get_args(int ac, char **av, t_istack *stack);
 //			... Prints ...			//
 void		print_stack(t_istack *stck);
-void		print_stacks(int count, t_istack *stacka, t_istack *stackb);
+void		print_stacks(t_istack *stacka, t_istack *stackb);
 //			... Maths ...			//
 int			ft_max(int *nums, int size);
 int			ft_min(int *nums, int size);
+//			... Costs ...			//
+void		check_costs_a2b(t_istack *a, t_istack *b);
+void 		print_costs(t_istack *stack);
 #endif

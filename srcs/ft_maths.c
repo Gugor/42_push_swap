@@ -14,7 +14,7 @@
  * MAX
  *
  */
-int ft_max(int *nums)
+int ft_max(int *nums, int size)
 {
 	int max;
 
@@ -22,10 +22,10 @@ int ft_max(int *nums)
 
 	if (!nums)
 		return (-1);
-	while (*nums)
+	while (--size >= 0)
 	{
 		if (max < *nums)
-			max = nums;
+			max = *nums;
 		nums++;
 	}
 	return (max);
@@ -36,20 +36,20 @@ int ft_max(int *nums)
  * MIN
  *
  */
-int ft_min(int *nums)
+int ft_min(int *nums, int size)
 {
 	int min;
 
 	min = 0;
 	if (!nums)
 		return (-1);
-	while (*nums)
+	while (--size >= 0)
 	{
 		if (min > *nums)
-			min = nums++;
+			min = *nums;
 		nums++;
 	}
-	return (max);
+	return (min);
 }
 
 /**
@@ -62,32 +62,3 @@ int ft_abs(int nb)
 		return (nb * -1);
 	return (nb);
 }
-
-/**
- * MEDIAN
- *
- */
-
-int find_median(t_stack *stack)
-{
-	int middle;
-	int olddist;
-	int newdist;
-	
-	int *lst;
-
-	lst = stack->list
-	middle = (stack->max - stack->min) / 2;
-	olddist = ft_abs(stack->min - *lst) + ft_abs(stack->max - *lst);
-	while (*lst)
-	{
-		newdist = ft_abs(stack->min - *lst) + ft_abs(stack->max - *lst);
-		if (newdist < olddist)
-		{
-			olddist = newdist;
-			stack->median = *lst;	
-		}
-		lst++;
-	}
-}
-

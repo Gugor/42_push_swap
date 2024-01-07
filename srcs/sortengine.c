@@ -61,8 +61,8 @@ static void stack_sort(t_istack *a, t_istack *b)
 {
 	if (is_sorted(a))
 		exit(1);
-	a->max = ft_max(a->list);
-	a->min = ft_min(a->list);
+	a->max = ft_max(a->list, a->len);
+	a->min = ft_min(a->list, a->len);
 	pb(b, a);
 	print_stack(a);
 	print_stack(b);

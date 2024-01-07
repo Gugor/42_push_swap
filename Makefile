@@ -10,6 +10,7 @@ LIBFT_DIR	= $(LIBS_DIR)/libft
 PRINTF_DIR	= $(LIBS_DIR)/ft_printf
 INCS_DIR	= ./includes
 SRCS_DIR	= ./srcs
+BIN_DIR		= ./bin
 TST_DIR		= ./test~
 
 # Libraries
@@ -27,9 +28,9 @@ LFLAGS		= -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf
 # FILES
 INC_FILES	= push_swap.h
 SRC_FILES	= push_swap.c push.c swap.c reverse.c rotate.c m_memory.c string.c \
-			  ft_utils.c args_manager.c sortengine.c print.c
+			  ft_utils.c args_manager.c sortengine.c ft_maths.c print.c
 TST_FILES	= push_swap.c push.c swap.c reverse.c rotate.c m_memory.c string.c \
-			  ft_utils.c args_manager.c sortengine.c print.c 
+			  ft_utils.c args_manager.c sortengine.c ft_maths.c print.c 
 
 # Route to files
 SRCS		= $(addprefix $(SRCS_DIR)/, $(SRC_FILES))
@@ -56,15 +57,24 @@ $(OBJS) : $(SRCS)
 	$(CC) -c $< $(CFLAGS) -o $@
 
 $(NAME) : $(MF) $(OBJS) $(INCS)
-	$(CC) $(SRCS) $(CFLAGS) $(LFLAGS) -o $(NAME)
+	$(CC) $(SRCS) $(CFLAGS) $(LFLAGS) -o $(BIN_DIR)/$(NAME)
 
-devre : fclean $(LIBFT) $(PRINTF) test
+devre : fclean $(LIBFT) $(PRINTF) dev
 
 $(DOBJS) : $(TSTS)
 	$(CC) -c $< $(CFLAGS) -o $@
 
-test : $(MF) $(DOBJS) $(INCS)
-	$(CC) -g $(TSTS) $(CFLAGS) $(LFLAGS) -o $(NAME)
+dev : $(MF) $(DOBJS) $(INCS)
+	$(CC) -g $(TSTS) $(CFLAGS) $(LFLAGS) -o $(BIN_DIR)/$(NAME)
+
+test1 : 
+	$(BIN_DIR)/$(NAME) 1 4 3 128 15 53 28 13 32 64
+
+test-dups : 
+	$(BIN_DIR)/$(NAME) 1 4 3 128 4 53 28 13 32 64
+
+test-three : 
+	$(BIN_DIR)/$(NAME) 1 4 3
 
 re: fclean all
 
